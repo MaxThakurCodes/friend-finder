@@ -1,0 +1,25 @@
+{
+  "name": "friend-finder",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Citizens-Studios/friend-finder.git"
+  },
+  "author": "Max Thakur",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Citizens-Studios/friend-finder/issues"
+  },
+  "homepage": "https://github.com/Citizens-Studios/friend-finder#readme",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0",
+    "mongoose": "^5.9.27",
+    "nodemon": "^2.0.4"
+  }
+}
