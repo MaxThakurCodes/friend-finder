@@ -6,26 +6,32 @@ module.exports = {
   aliases: ["r"],
   description: "report a dumb bitch",
   async execute(client, message, args) {
-    let curConvo = await convo.find({});
-    let ruser;
-    for (let i = 0; i < curConvo.length; i++) {
-      if (curConvo[i].u1 === message.author.id) {
-        ruser = curConvo[i].u2;
-      }
-      if (curConvo[i].u2 === message.author.id) {
-        ruser = curConvo[i].u1;
-      }
-      var filename = `DMu1${curConvo[i].u1}u2${curConvo[i].u2}.txt`;
-    }
     if (!args[0]) {
-      return sendexample("(reason)");
+      return sendexample(
+        "(id)",
+        "(The file name that was provided)",
+        "(reason)"
+      );
     }
-    let uid = ruser;
-    let reason = args.join(" ");
-    report(uid, filename, reason);
+    if (!args[1]) {
+      return sendexample(
+        args[0],
+        "(The file name that was provided)",
+        "(reason)"
+      );
+    }
+    if (!args[2]) {
+      return sendexample(args[0], args[1], "(reason)");
+    }
+    let uid = args[0];
+    let fn = args[1];
+    let reason = args.slice(2).join(" ");
+    report(uid, fn, reason);
     message.reply("Reported sucessfully!");
-    function sendexample(reason) {
-      return message.reply(`Trying doing it this way: \`=report ${reason}\``);
+    function sendexample(id, fn, reason) {
+      return message.reply(
+        `Trying doing it this way: \`=report ${id} ${fn} ${reason}\``
+      );
     }
     async function report(id, fn, reason) {
       let reportChannel = client.guilds.cache
