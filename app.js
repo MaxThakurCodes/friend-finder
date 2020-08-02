@@ -35,8 +35,8 @@ client.once("ready", () => {
 db.once("open", () => {
   client.on("message", (message) => {
     if (deniedIds.includes(message.author.id)) {
-      message.reply(
-        "You have been put on a deined list for this bot. If this was an error please join this server https://discord.gg/Ts3n43N, dm the Co-Owner or higher."
+      return message.reply(
+        "You have been put on a blocked list for this bot. If you believe this was an error, please join this server https://discord.gg/Ts3n43N, dm the Co-Owner or higher."
       );
     }
     if (message.channel.type === "dm") {
