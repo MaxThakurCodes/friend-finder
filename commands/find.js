@@ -1,6 +1,7 @@
 const user = require("../models/user");
 const convo = require("../models/convo");
 const { prefix } = require("../config.json");
+const fs = require("fs");
 module.exports = {
   name: "find",
   aliases: ["f", "ff"],
@@ -58,12 +59,32 @@ module.exports = {
       });
       let user1 = client.users.cache.get(dbuser[0].uid);
       let user2 = client.users.cache.get(dbuser[1].uid);
+      let today = new Date();
+      let date =
+        today.getFullYear() +
+        "-" +
+        (today.getMonth() + 1) +
+        "-" +
+        today.getDate();
+      let time =
+        today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      let dateTime = date + " " + time;
+      let data = `\nDate: ${dateTime}\n----------------------------------------------------------------------------------------------------------------\n`;
       try {
+        fs.appendFile(
+          `./logs/DMu1${user1.id}u2${user2.id}.txt`,
+          data,
+          (err) => {
+            if (err) {
+              console.log(err);
+            }
+          }
+        );
         user1.send(
-          `You've been connected with \`${user2.tag}\`; Your Filename is: \`DMu1${user1.id}u2${user2.id}.txt\` use this to assist in the report if you report them, please be nice. If you would like to report anyone run \`=report\` for more information. *NOTE: You're messages are logged then deleted after 12 hours if there is no report for any of your messages*`
+          `You've been connected with \`${user2.tag}\`; If think they broke a rule please use this command to report them. \`=report ${user2.id} DMu1${user1.id}u2${user2.id}.txt (The reason why you reported them)\`*NOTE: You're messages are logged then deleted after 12 hours if there is no report for any of your messages*`
         );
         user2.send(
-          `You've been connected with \`${user1.tag}\`; Your Filename is: \`DMu1${user1.id}u2${user2.id}.txt\` use this to assist in the report if you report them, please be nice! If you would like to report anyone run \`=report\` for more information. *NOTE: You're messages are logged then deleted after 12 hours if there is no report for any of your messages*`
+          `You've been connected with \`${user1.tag}\`; If think they broke a rule please use this command to report them. \`=report ${user1.id} DMu1${user1.id}u2${user2.id}.txt (The reason why you reported them)\` *NOTE: You're messages are logged then deleted after 12 hours if there is no report for any of your messages*`
         );
       } catch {
         message.reply("There was an error please try again.");
