@@ -1,6 +1,7 @@
 const fs = require("fs");
 const Discord = require("discord.js");
 const { prefix, token } = require("./config.json");
+const { deniedIds } = require("./deinedaccess.json");
 const dmMessage = require("./events/dmMessage");
 require("dotenv").config();
 
@@ -33,6 +34,11 @@ client.once("ready", () => {
 });
 db.once("open", () => {
   client.on("message", (message) => {
+    if (deniedIds.includes(message.author.id)) {
+      message.reply(
+        "You have been put on a deined list for this bot. If this was an error please join this server https://discord.gg/Ts3n43N, dm the Co-Owner or higher."
+      );
+    }
     if (message.channel.type === "dm") {
       dmMessage.newMessage(client, message);
     }
