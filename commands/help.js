@@ -17,7 +17,11 @@ module.exports = {
         "End the chat with the person you are connected with."
       )
       .addField("info", "Information on the bot.")
-      .addField("leave", "Leave the queue and find another friend.");
+      .addField("leave", "Leave the queue and find another friend.")
+      .addField(
+        "report",
+        "Report people who are doing bad things with the bot."
+      );
     message.channel.send(embed);
   },
 };

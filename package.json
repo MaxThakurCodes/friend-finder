@@ -20,6 +20,7 @@
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
     "mongoose": "^5.9.27",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "simple-node-logger": "^18.12.24"
   }
 }

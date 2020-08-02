@@ -60,10 +60,10 @@ module.exports = {
       let user2 = client.users.cache.get(dbuser[1].uid);
       try {
         user1.send(
-          `You've been connected with \`${user2.tag}\`; Their id is: \`${user2.id}\`, please be nice. If you would like to report anyone please join the discord: https://discord.gg/hBfmxVt and report their id to the Co-Owner or higher.`
+          `You've been connected with \`${user2.tag}\`; Your Filename is: \`DMu1${user1.id}u2${user2.id}.txt\` use this to assist in the report if you report them, please be nice. If you would like to report anyone run \`=report\` for more information. *NOTE: You're messages are logged then deleted after 12 hours if there is no report for any of your messages*`
         );
         user2.send(
-          `You've been connected with \`${user1.tag}\`; Their id is: \`${user1.id}\`, please be nice! If you would like to report anyone please join the discord: https://discord.gg/hBfmxVt and report their id to the Co-Owner or higher.`
+          `You've been connected with \`${user1.tag}\`; Your Filename is: \`DMu1${user1.id}u2${user2.id}.txt\` use this to assist in the report if you report them, please be nice! If you would like to report anyone run \`=report\` for more information. *NOTE: You're messages are logged then deleted after 12 hours if there is no report for any of your messages*`
         );
       } catch {
         message.reply("There was an error please try again.");

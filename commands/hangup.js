@@ -9,7 +9,7 @@ module.exports = {
       if (curConvos[i] !== undefined) {
         if (curConvos[i].u1 === message.author.id) {
           message.channel.send(
-            `Successfully hung up with <@${curConvos[i].u2}> `
+            `Successfully hung up on <@${curConvos[i].u2}> `
           );
           client.users.cache
             .get(curConvos[i].u2)
@@ -21,7 +21,7 @@ module.exports = {
           });
         } else if (curConvos[i].u2 === message.author.id) {
           message.channel.send(
-            `Successfully hung up with <@${curConvos[i].u1}> `
+            `Successfully hung up on <@${curConvos[i].u1}> `
           );
           client.users.cache
             .get(curConvos[i].u1)
