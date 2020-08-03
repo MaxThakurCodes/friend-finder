@@ -1,7 +1,6 @@
 const fs = require('fs')
 const Discord = require('discord.js')
 const { prefix, token } = require('./config.json')
-const { deniedIds } = require('./deinedaccess.json')
 const dmMessage = require('./events/dmMessage')
 const blockList = require('./models/blocklist')
 require('dotenv').config()
@@ -40,8 +39,8 @@ db.once('open', () => {
     }
     if (!message.content.startsWith(prefix) || message.author.bot) return
     let user = await blockList.findOne({})
-    if (user.user.uid === msg.author.id) {
-      return msg.reply(
+    if (user.user.uid === message.author.id) {
+      return message.reply(
         `Your id has been added to the blocked list with the reason: \`${user.user.reason}\`, please join https://discord.gg/Ts3n43N if you believe this was a mistake.`
       )
     }
