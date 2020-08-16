@@ -1,11 +1,14 @@
 const Discord = require("discord.js"),
-  convo = require("../models/convo");
+  convo = require("../models/convo"),
+  config = require("../config.json");
 
 module.exports = {
   name: "report",
   aliases: ["r"],
   description: "report a dumb bitch",
   async execute(client, message, args) {
+    if(config.mainGuild === "MainGuildIDHere") return console.log("Yo check config.json");
+    if(config.reportChannel === "ReportChannelIDHere") return console.log("Yo check config.json");
     if (!args[0]) {
       return sendexample(
         "(id)",
@@ -35,8 +38,8 @@ module.exports = {
     }
     async function report(id, fn, reason) {
       let reportChannel = client.guilds.cache
-        .get("721974664628535317")
-        .channels.cache.get("739399301372968990");
+        .get(config.mainGuild)
+        .channels.cache.get(config.reportChannel);
       let reportedUser = client.users.cache.get(id);
       if (reportedUser === null) {
         return message.reply("I can't seem to find a user with that id.");
