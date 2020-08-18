@@ -1,6 +1,6 @@
 # Friend-Finder
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
   Hey there, this is a discord bot called "Friend-Finder". I made this Discord bot in 10 hours of just coding. The prefix is `=` you can change it in [config.json](config.json).
 ## How to use this!
@@ -31,6 +31,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/joey082"><img src="https://avatars2.githubusercontent.com/u/56607973?v=4" width="100px;" alt=""/><br /><sub><b>LeVi</b></sub></a><br /><a href="https://github.com/MaxThakurCodes/friend-finder/issues?q=author%3Ajoey082" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="http://maxthakur.com"><img src="https://avatars1.githubusercontent.com/u/25856189?v=4" width="100px;" alt=""/><br /><sub><b>Max Thakur</b></sub></a><br /><a href="https://github.com/MaxThakurCodes/friend-finder/issues?q=author%3AMaxThakurCodes" title="Bug reports">🐛</a> <a href="https://github.com/MaxThakurCodes/friend-finder/commits?author=MaxThakurCodes" title="Code">💻</a> <a href="#projectManagement-MaxThakurCodes" title="Project Management">📆</a> <a href="https://github.com/MaxThakurCodes/friend-finder/commits?author=MaxThakurCodes" title="Documentation">📖</a> <a href="#design-MaxThakurCodes" title="Design">🎨</a> <a href="#ideas-MaxThakurCodes" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-MaxThakurCodes" title="Maintenance">🚧</a> <a href="#question-MaxThakurCodes" title="Answering Questions">💬</a></td>
   </tr>
 </table>
 
