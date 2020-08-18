@@ -1,4 +1,7 @@
 # Friend-Finder
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
   Hey there, this is a discord bot called "Friend-Finder". I made this Discord bot in 10 hours of just coding. The prefix is `=` you can change it in [config.json](config.json).
 ## How to use this!
   Download the repository and open a CMD/Terminal in the directory of the folder.
@@ -17,3 +20,22 @@
    [Want to buy me a cup of coffee?](https://www.buymeacoffee.com/MaxThakurCodes).
 ## License
 I am using the [GNU Affero General Public License v3.0](LICENSE).
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/joey082"><img src="https://avatars2.githubusercontent.com/u/56607973?v=4" width="100px;" alt=""/><br /><sub><b>LeVi</b></sub></a><br /><a href="https://github.com/MaxThakurCodes/friend-finder/issues?q=author%3Ajoey082" title="Bug reports">🐛</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
