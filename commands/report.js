@@ -5,7 +5,7 @@ const Discord = require("discord.js"),
 module.exports = {
   name: "report",
   aliases: ["r"],
-  description: "report a dumb bitch",
+  description: "report a person who is breaking the rules.",
   async execute(client, message, args) {
     if(config.mainGuild === "MainGuildIDHere") return console.log("Yo check config.json");
     if(config.reportChannel === "ReportChannelIDHere") return console.log("Yo check config.json");
@@ -40,7 +40,16 @@ module.exports = {
       let reportChannel = client.guilds.cache
         .get(config.mainGuild)
         .channels.cache.get(config.reportChannel);
-      let reportedUser = client.users.cache.get(id);
+      let nid;
+      let t;
+      if(id.includes("<@!")){
+        t = await id.replace("<@!", "")
+        
+      } else if(id.includes("<@")) {
+        t = await id.replace("<@", "")
+      }
+      nid = await t.replace(">", "")
+      let reportedUser = client.users.cache.get(nid);
       if (reportedUser === null) {
         return message.reply("I can't seem to find a user with that id.");
       }
@@ -52,8 +61,8 @@ module.exports = {
         .addField("Id:", message.author.id, true)
         .addField("Tag:", `<@${message.author.id}>`, true)
         .addField("User Being Reported:", "‎")
-        .addField("Id:", id, true)
-        .addField("Tag:", `<@${id}>`, true)
+        .addField("Id:", nid, true)
+        .addField("Tag:", id, true)
         .addField("Reason:", reason)
         .setFooter(message.author.tag, message.author.avatarURL())
         .setTimestamp();
