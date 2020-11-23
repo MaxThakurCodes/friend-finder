@@ -25,10 +25,3 @@ module.exports = {
     message.channel.send(embed);
   },
 };
-//robbie
-//so it idcke leted to the foirtmat?
-// STICK TO THE FORMAT
-// NO :SOBl:
-//keep this in the code its funny
-//mhm ok boomer
-//slut
