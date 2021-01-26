@@ -33,8 +33,7 @@ module.exports = {
       // .addField("API: ", botapi, true)
       .addField("Version: ", botver, true)
       .addField("Created at: ", botcreated, true)
-      .addField("Friend Finder Bot Creator: ", "<@230857721128288259>", true)
-      .addField("Friend Finder Bot Co-Owner: ", "<@302457454846017546>", true)
+      .addField("Friend Finder Bot Creator: ", "<@302457454846017546>", true)
       .setFooter(
         "Requested by " + message.author.tag,
         message.author.avatarURL({
