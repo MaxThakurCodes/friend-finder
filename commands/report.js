@@ -31,25 +31,26 @@ module.exports = {
     let reason = args.slice(2).join(" ");
     report(uid, fn, reason);
     message.reply("Reported sucessfully!");
-    function sendexample(id, fn, reason) {
+    function sendexample(id, fn1, ureason) {
       return message.reply(
-        `Trying doing it this way: \`=report ${id} ${fn} ${reason}\``
+        `Trying doing it this way: \`=report ${id} ${fn1} ${ureason}\``
       );
     }
     async function report(id, fn, reason) {
       let reportChannel = client.guilds.cache
         .get(config.mainGuild)
         .channels.cache.get(config.reportChannel);
-      let nid;
-      let t;
+      let t = id;
       if(id.includes("<@!")){
-        t = await id.replace("<@!", "")
+        t = await t.replace("<@!", "")
         
       } else if(id.includes("<@")) {
-        t = await id.replace("<@", "")
+        t = await t.replace("<@", "")
       }
-      nid = await t.replace(">", "")
-      let reportedUser = client.users.cache.get(nid);
+      if(id.includes(">")) {
+        t = await t.replace(">", "");
+      }
+      let reportedUser = await client.users.fetch(t);
       if (reportedUser === null) {
         return message.reply("I can't seem to find a user with that id.");
       }
@@ -58,11 +59,13 @@ module.exports = {
         .addField("Filename:", fn)
         .setColor("#E74C3C")
         .addField("User Reporting:", "‎")
-        .addField("Id:", message.author.id, true)
-        .addField("Tag:", `<@${message.author.id}>`, true)
+        .addField("Id:", message.author.id)
+        .addField("Username: ", message.member.user.username, true)
+        .addField("Tag:", message.member.user.discriminator, true)
         .addField("User Being Reported:", "‎")
-        .addField("Id:", nid, true)
-        .addField("Tag:", id, true)
+        .addField("Id:", t, false)
+        .addField("Username: ", reportedUser.username, true)
+        .addField("Tag:", reportedUser.discriminator, true)
         .addField("Reason:", reason)
         .setFooter(message.author.tag, message.author.avatarURL())
         .setTimestamp();
