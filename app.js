@@ -35,14 +35,16 @@ client.once('ready', () => {
 db.once('open', () => {
   client.on('message', async message => {
     if (message.channel.type === 'dm') {
-      dmMessage.newMessage(client, message)
+      dmMessage.newMessage(client, message);
     }
     if (!message.content.startsWith(prefix) || message.author.bot) return
     let user = await blockList.findOne({})
-    if (user.user.uid === message.author.id) {
-      return message.reply(
-        `Your id has been added to the blocked list with the reason: \`${user.user.reason}\`, please join https://discord.gg/Ts3n43N if you believe this was a mistake.`
-      )
+    if(user !== null) {
+      if (user.user.uid === message.author.id) {
+        return message.reply(
+          `Your id has been added to the blocked list with the reason: \`${user.user.reason}\`, please join https://discord.gg/Ts3n43N if you believe this was a mistake.`
+        )
+      }
     }
     const args = message.content
       .slice(prefix.length)
