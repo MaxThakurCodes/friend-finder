@@ -42,10 +42,10 @@ module.exports = {
         .channels.cache.get(config.reportChannel);
       let t = id;
       if(id.includes("<@!")){
-        t = await t.replace("<@!", "")
+        t = await t.replace("<@!", "");
         
       } else if(id.includes("<@")) {
-        t = await t.replace("<@", "")
+        t = await t.replace("<@", "");
       }
       if(id.includes(">")) {
         t = await t.replace(">", "");
@@ -60,8 +60,8 @@ module.exports = {
         .setColor("#E74C3C")
         .addField("User Reporting:", "‎")
         .addField("Id:", message.author.id)
-        .addField("Username: ", message.member.user.username, true)
-        .addField("Tag:", message.member.user.discriminator, true)
+        .addField("Username: ", message.author.username, true)
+        .addField("Tag:", message.author.discriminator, true)
         .addField("User Being Reported:", "‎")
         .addField("Id:", t, false)
         .addField("Username: ", reportedUser.username, true)
