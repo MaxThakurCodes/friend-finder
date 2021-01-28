@@ -15,7 +15,7 @@ module.exports = {
         "(The file name that was provided)",
         "(reason)"
       );
-    } else if(/^\d+$/.test(args[1]) !== true) {
+    } else if(/^\d+$/.test(args[0]) !== true) {
       return sendexample(
         "(id)",
         "(The file name that was provided)",
@@ -36,7 +36,6 @@ module.exports = {
     let pfn = args[1];
     let preason = args.slice(2).join(" ");
     report(uid, pfn, preason);
-    message.reply("Reported sucessfully!");
     function sendexample(id, fn1, ureason) {
       return message.reply(
         `Trying doing it this way: \`=report ${id} ${fn1} ${ureason}\``
@@ -56,7 +55,12 @@ module.exports = {
       if(id.includes(">")) {
         t = await t.replace(">", "");
       }
-      let reportedUser = await client.users.fetch(t);
+      let reportedUser;
+      try{
+        reportedUser = await client.users.fetch(t);
+      } catch (e) {
+        if(e) return message.reply("there was an error make sure that the User's Id is correct!");
+      }
       if (reportedUser === null) {
         return message.reply("I can't seem to find a user with that id.");
       }
@@ -76,6 +80,7 @@ module.exports = {
         .setFooter(message.author.tag, message.author.avatarURL())
         .setTimestamp();
       reportChannel.send(rembed);
+      message.reply("Reported sucessfully!");
     }
   },
 };
