@@ -19,9 +19,7 @@ module.exports = {
       }
     });
     curConvos.forEach((i) => {
-      if (i.u1 === message.author.id) {
-        incall = true;
-      } else if (i.u2 === message.author.id) {
+      if (i.u1 === message.author.id || i.u2 === message.author.id) {
         incall = true;
       }
     });

@@ -27,9 +27,9 @@ module.exports = {
       return sendexample(args[0], args[1], "(reason)");
     }
     let uid = args[0];
-    let fn = args[1];
-    let reason = args.slice(2).join(" ");
-    report(uid, fn, reason);
+    let pfn = args[1];
+    let preason = args.slice(2).join(" ");
+    report(uid, pfn, preason);
     message.reply("Reported sucessfully!");
     function sendexample(id, fn1, ureason) {
       return message.reply(
