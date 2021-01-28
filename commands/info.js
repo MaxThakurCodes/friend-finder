@@ -24,13 +24,10 @@ module.exports = {
     let embed = new Discord.MessageEmbed()
       .setAuthor("Friend Finder", client.user.AvatarURL)
       .setColor("#7289DA")
-      //  .addField("BFB Status: ", `${botstats}`)
-      //  .addField(":cyclone: Users interact: ", botuser, true)
       .addField("Servers Joined: ", botguild, true)
       .addField("Channels Joined: ", botchannel, true)
       .addField("Uptime: ", `${botuptime}`, true)
       .addField("Ping: ", Math.round(client.ws.ping) + "ms", true)
-      // .addField("API: ", botapi, true)
       .addField("Version: ", botver, true)
       .addField("Created at: ", botcreated, true)
       .addField("Friend Finder Bot Creator: ", "<@302457454846017546>", true)
@@ -42,7 +39,6 @@ module.exports = {
           size: 2048,
         })
       )
-      //.addField("Shards: ", botshard, true)
       .setTimestamp();
     message.channel.send(embed);
   },
