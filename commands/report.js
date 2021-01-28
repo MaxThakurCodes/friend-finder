@@ -15,6 +15,12 @@ module.exports = {
         "(The file name that was provided)",
         "(reason)"
       );
+    } else if(/^\d+$/.test(args[1]) === false) {
+      return sendexample(
+        "(id)",
+        "(The file name that was provided)",
+        "(reason)"
+      );
     }
     if (!args[1]) {
       return sendexample(
